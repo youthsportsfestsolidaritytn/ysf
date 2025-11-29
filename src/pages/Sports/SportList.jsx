@@ -14,16 +14,16 @@ export default function SportList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const eventRes = await axios.get(`http://localhost:5000/api/events/${eventId}`);
+        const eventRes = await axios.get(`${import.meta.env.VITE_API_URL}/events/${eventId}`);
         setEvent(eventRes.data);
 
-        const sportsRes = await axios.get(`http://localhost:5000/api/sports/event/${eventId}`);
+        const sportsRes = await axios.get(`${import.meta.env.VITE_API_URL}/sports/event/${eventId}`);
         setSports(sportsRes.data);
 
         // Master Leaderboard
         const teamPointsMap = {};
         for (let sport of sportsRes.data) {
-          const matchesRes = await axios.get(`http://localhost:5000/api/matches/sport/${sport.sportId}`);
+          const matchesRes = await axios.get(`${import.meta.env.VITE_API_URL}/matches/sport/${sport.sportId}`);
           matchesRes.data.forEach(match => {
             // Team A points
             if (match.teamA) {

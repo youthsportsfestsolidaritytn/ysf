@@ -16,12 +16,12 @@ export default function MatchList() {
     setLoading(true);
 
     // Fetch sport
-    axios.get(`http://localhost:5000/api/sports/${sportId}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/sports/${sportId}`)
       .then((res) => {
         setSport(res.data);
         if (res.data.eventId) {
           // Fetch event
-          axios.get(`http://localhost:5000/api/events/${res.data.eventId}`)
+          axios.get(`${import.meta.env.VITE_API_URL}/events/${res.data.eventId}`)
             .then((resEvent) => setEvent(resEvent.data))
             .catch((err) => console.error("Event fetch error:", err));
         }
@@ -29,7 +29,7 @@ export default function MatchList() {
       .catch((err) => console.error(err));
 
     // Fetch matches
-    axios.get(`http://localhost:5000/api/matches/sport/${sportId}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/matches/sport/${sportId}`)
       .then((res) => setMatches(res.data))
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));

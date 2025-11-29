@@ -10,7 +10,7 @@ export default function EventList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/events")
+      .get(`${import.meta.env.VITE_API_URL}/events`)
       .then((res) => setEvents(res.data))
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));
