@@ -1,0 +1,65 @@
+/* GLOBALS */
+body {
+  margin: 0;
+}
+
+/* Global Wrapper */
+.home-wrapper {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Global Buttons */
+.primary-btn,
+.secondary-btn {
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Primary Button */
+.primary-btn {
+  background-color: #ffffff;
+  color: #30644d;
+  box-shadow: 0 4px 12px rgba(77, 180, 221, 0.3);
+  font-size: 1.5rem;
+}
+
+.primary-btn:hover {
+  background-color: #43b48c;
+  color: #ffffff;
+}
+
+/* Secondary Button */
+.secondary-btn {
+  background-color: #30644d;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(48, 100, 77, 0.3);
+  font-size: 1.5rem;
+}
+
+.secondary-btn:hover {
+  background-color: #43b48c;
+  border-color: #ffffff;
+}
+
+/* Reusable Section Title */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #30644d;
+}
+
+/* Reusable Cards */
+.highlight-card,
+.feature-card,
+.stat-card {
+  border-radius: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
