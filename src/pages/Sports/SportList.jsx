@@ -86,6 +86,9 @@ export default function SportList() {
 
       {/* Sport Cards Section */}
       <section className="sport-list-section">
+        <div className="activity-count">
+          <p>Total Sports: {sports.length}</p>
+        </div>
         {/* Master Leaderboard */}
 {/* Master Leaderboard */}
 {/* {leaderboard.length > 0 && (
@@ -104,7 +107,6 @@ export default function SportList() {
 )} */}
 
         <div className="sport-grid">          
-
           {sports.map((sport) => (
             <div key={sport.sportId} className="sport-card">
               <h2 className="sport-title">{sport.sportName}</h2>

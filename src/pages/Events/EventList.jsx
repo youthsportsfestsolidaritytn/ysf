@@ -46,14 +46,18 @@ export default function EventList() {
           </p>
         </div>
       </header>
-
+      
       {/* Event Cards */}
       <section className="event-list-section">
+        <div className="event-count">
+          <p>Total Events: {events.length}</p>
+        </div>
+
         <div className="event-grid">
           {events.map((event) => (
             <div key={event.eventId} className="event-card">
               <h2 className="event-title">{event.eventName}</h2>
-              <p className="event-season">Season {event.seasonNo}</p>
+              {/* <p className="event-season">Season {event.seasonNo}</p> */}
 
               <div className="event-details">
                 <p><FaCalendarAlt className="icon" /> {new Date(event.startDate).toDateString()} - {new Date(event.endDate).toDateString()}</p>

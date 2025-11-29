@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../../styles/MatchList.css";
-import { FaUsers, FaMapMarkerAlt, FaTrophy, FaClipboardList } from "react-icons/fa";
+import { FaUsers, FaMapMarkerAlt, FaTrophy, FaClipboardList, FaMedal } from "react-icons/fa";
 
 export default function MatchList() {
   const { sportId } = useParams();
@@ -10,17 +10,15 @@ export default function MatchList() {
   const [sport, setSport] = useState(null);
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("matches"); // matches or leaderboard
+  const [activeTab, setActiveTab] = useState("matches");
 
   useEffect(() => {
     setLoading(true);
 
-    // Fetch sport
     axios.get(`${import.meta.env.VITE_API_URL}/sports/${sportId}`)
       .then((res) => {
         setSport(res.data);
         if (res.data.eventId) {
-          // Fetch event
           axios.get(`${import.meta.env.VITE_API_URL}/events/${res.data.eventId}`)
             .then((resEvent) => setEvent(resEvent.data))
             .catch((err) => console.error("Event fetch error:", err));
@@ -28,7 +26,6 @@ export default function MatchList() {
       })
       .catch((err) => console.error(err));
 
-    // Fetch matches
     axios.get(`${import.meta.env.VITE_API_URL}/matches/sport/${sportId}`)
       .then((res) => setMatches(res.data))
       .catch((err) => console.error(err))
@@ -51,7 +48,6 @@ export default function MatchList() {
 
   return (
     <div className="match-wrapper">
-      {/* Hero Section */}
       <header className="hero-section">
         <div className="floating-circle"></div>
         <div className="floating-circle"></div>
@@ -60,12 +56,11 @@ export default function MatchList() {
         <div className="hero-content">
           <h1 className="hero-title">{sport ? sport.sportName : "Loading Sport..."}</h1>
           <p className="hero-subtitle">
-            {event ? `Event: ${event.eventName}` : "Loading Event..."}
+            {event ? event.eventName : "Loading Event..."}
           </p>
         </div>
       </header>
 
-      {/* Tab Buttons */}
       <div className="tab-buttons">
         <button
           className={activeTab === "matches" ? "active" : ""}
@@ -81,7 +76,6 @@ export default function MatchList() {
         </button>
       </div>
 
-      {/* Matches Grid */}
       {activeTab === "matches" && (
         <section className="match-list-section">
           <div className="match-grid">
@@ -103,7 +97,6 @@ export default function MatchList() {
         </section>
       )}
 
-      {/* Leaderboard */}
       {activeTab === "leaderboard" && (
         <section className="leaderboard-section">
           <h2 className="leaderboard-title">Leaderboard</h2>

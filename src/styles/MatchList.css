@@ -1,6 +1,4 @@
-/* =============================
-   Match Wrapper & Global Styles
-============================= */
+/* Match Wrapper */
 .match-wrapper {
   font-family: 'Inter', sans-serif;
   width: 100%;
@@ -8,175 +6,263 @@
   overflow-x: hidden;
 }
 
-/* =============================
-   Hero Section
-============================= */
+/* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #30644d 0%, #43b48c 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #003399 0%, #0047b3 100%);
+  color: #FFFFFF;
   text-align: center;
   padding: 6rem 2rem;
-  border-radius: 0 0 50% 50% / 20%;
   position: relative;
   overflow: hidden;
 }
 
-.hero-section .floating-circle {
+/* Abstract shapes */
+.hero-section::before {
+  content: '';
   position: absolute;
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 85, 0.15) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
   border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
   z-index: 0;
 }
 
-.hero-section .floating-circle:nth-child(1) { top: 100px; left: 50px; animation-delay: 0s; }
-.hero-section .floating-circle:nth-child(2) { top: 150px; right: 70px; animation-delay: 2s; }
-.hero-section .floating-circle:nth-child(3) { bottom: 120px; left: 150px; animation-delay: 4s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(20deg); }
+.hero-section::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  bottom: -80px;
+  left: -80px;
+  border-radius: 50%;
+  z-index: 0;
 }
 
-.hero-content { position: relative; z-index: 1; }
-.hero-title {
+/* Floating shapes */
+.hero-section .floating-circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 85, 0.15);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero-section .floating-circle:nth-child(1) { 
+  top: 15%; 
+  left: 10%; 
+  animation-delay: 0s; 
+  width: 80px;
+  height: 80px;
+}
+
+.hero-section .floating-circle:nth-child(2) { 
+  top: 20%; 
+  right: 15%; 
+  animation-delay: 2s; 
+}
+
+.hero-section .floating-circle:nth-child(3) { 
+  bottom: 20%; 
+  left: 20%; 
+  animation-delay: 4s; 
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section .hero-title {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
-}
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: rgba(255,255,255,0.9);
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* =============================
-   Tab Buttons
-============================= */
+.hero-section .hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  color: #FFFF55;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tab Buttons */
 .tab-buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 2rem 0;
   gap: 1rem;
 }
 
 .tab-buttons button {
   padding: 0.8rem 2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  border-radius: 12px;
-  border: none;
+  border-radius: 50px;
+  border: 2px solid #003399;
   cursor: pointer;
-  background: #30644d;
-  color: #fff;
+  background: #FFFFFF;
+  color: #003399;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 51, 153, 0.1);
 }
 
-.tab-buttons button.active,
 .tab-buttons button:hover {
-  background: #43b48c;
+  background: #FFFF55;
+  border-color: #FFFF55;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 255, 85, 0.3);
 }
 
-/* =============================
-   Match List Section
-============================= */
+.tab-buttons button.active {
+  background: #003399;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(0, 51, 153, 0.3);
+}
+
+/* Match List Section */
 .match-list-section {
   padding: 2rem;
-  display: grid;
-  gap: 25px;
+  background: linear-gradient(to bottom, #FFFFFF 0%, #f8f9fa 100%);
 }
 
 .match-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .match-card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0px 6px 18px rgba(77,180,221,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 51, 153, 0.08);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.match-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FFFF55 0%, #003399 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.match-card:hover::before {
+  transform: scaleX(1);
 }
 
 .match-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0px 12px 28px rgba(77,180,221,0.25);
+  box-shadow: 0 8px 30px rgba(0, 51, 153, 0.15);
+  border-color: #FFFF55;
 }
 
 .match-title {
-  font-size: 1.8rem;
-  color: #30644d;
+  font-size: 1.6rem;
+  color: #003399;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
 }
 
 .match-details p {
   display: flex;
   align-items: center;
-  margin: 6px 0;
-  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
   line-height: 1.8;
-  color: #30644d;
+  color: #444;
 }
 
 .match-details .icon {
-  margin-right: 8px;
-  color: #43b48c;
+  margin-right: 0.5rem;
+  color: #003399;
 }
 
-/* =============================
-   Leaderboard Section
-============================= */
+/* Leaderboard Section */
 .leaderboard-section {
-  padding: 2rem;
+  padding: 3rem 2rem;
+  background: #FFFFFF;
 }
 
 .leaderboard-title {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #30644d;
+  margin-bottom: 2rem;
+  color: #003399;
 }
 
 .leaderboard-table {
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   border-collapse: collapse;
-  background: #ffffff;
-  border-radius: 12px;
+  background: #FFFFFF;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(77,180,221,0.15);
+  box-shadow: 0 6px 20px rgba(0, 51, 153, 0.1);
 }
 
 .leaderboard-table th,
 .leaderboard-table td {
-  padding: 12px 15px;
+  padding: 1rem;
   text-align: center;
-  color: #30644d;
+  color: #003399;
 }
 
 .leaderboard-table th {
-  background: #43b48c;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
+  background: linear-gradient(135deg, #003399 0%, #0047b3 100%);
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.leaderboard-table td{
-  font-size: 1.2rem;
+.leaderboard-table td {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.leaderboard-table tbody tr {
+  transition: background 0.2s ease;
 }
 
 .leaderboard-table tbody tr:nth-child(even) {
-  background: #f0f7f6;
+  background: #f8f9fa;
 }
 
-/* =============================
-   Loading State
-============================= */
+.leaderboard-table tbody tr:hover {
+  background: rgba(255, 255, 85, 0.15);
+}
+
+/* Loading State */
 .match-loading-wrapper {
   min-height: 60vh;
   display: flex;
@@ -186,18 +272,65 @@
 
 .loading-text {
   font-size: 1.4rem;
-  color: #30644d;
+  color: #003399;
+  font-weight: 500;
 }
 
-/* =============================
-   Responsive Adjustments
-============================= */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .hero-title { font-size: 8vw; }
-  .hero-subtitle { font-size: 1.3rem; }
-  .match-title { font-size: 1.6rem; }
-  .match-details p { font-size: 1rem; }
-  .tab-buttons button { font-size: 1.3rem; padding: 8px 16px; }
-  .loading-text { font-size: 1.2rem; }
-  .leaderboard-title { font-size: 2rem; }
+  .hero-title { 
+    font-size: 2.5rem; 
+  }
+  
+  .hero-subtitle { 
+    font-size: 1.2rem; 
+  }
+  
+  .match-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .match-title { 
+    font-size: 1.5rem; 
+  }
+  
+  .match-details p { 
+    font-size: 0.95rem; 
+  }
+  
+  .loading-text { 
+    font-size: 1.2rem; 
+  }
+  
+  .leaderboard-title { 
+    font-size: 2rem; 
+  }
+  
+  .leaderboard-section {
+    padding: 2rem 1rem;
+  }
+  
+  .leaderboard-table {
+    border-radius: 12px;
+  }
+  
+  .leaderboard-table th {
+    font-size: 0.9rem;
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .leaderboard-table td {
+    font-size: 0.85rem;
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .tab-buttons button {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+  
+  .match-card {
+    border-radius: 12px;
+  }
 }
