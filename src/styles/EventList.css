@@ -1,0 +1,151 @@
+.event-wrapper {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Hero Section (reuse Home hero style) */
+.hero-section {
+  background: linear-gradient(135deg, #30644d 0%, #43b48c 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 6rem 2rem;
+  border-radius: 0 0 50% 50% / 20%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .floating-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero-section .floating-circle:nth-child(1) { top: 100px; left: 50px; animation-delay: 0s; }
+.hero-section .floating-circle:nth-child(2) { top: 150px; right: 70px; animation-delay: 2s; }
+.hero-section .floating-circle:nth-child(3) { bottom: 120px; left: 150px; animation-delay: 4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(20deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 6vw; /* Match home.css hero title */
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem; /* Adjusted to match home.css */
+  margin-bottom: 2rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Event List Section */
+.event-list-section {
+  padding: 4rem 2rem;
+  background-color: #f6f6f6;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.event-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 6px 18px rgba(77,180,221,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 28px rgba(77,180,221,0.25);
+}
+
+.event-title {
+  font-size: 1.8rem; /* Adjusted for consistency */
+  color: #30644d;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.event-season {
+  font-size: 1.2rem; /* Adjusted for readability */
+  color: #43b48c;
+  margin-bottom: 15px;
+}
+
+.event-details p {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  font-size: 1.2rem; /* Updated to match highlight-card p font */
+  color: #30644d;
+}
+
+.event-details .icon {
+  margin-right: 8px;
+  color: #43b48c;
+}
+
+.comments {
+  font-style: italic;
+  color: #30644d;
+  font-size: 1.3rem; /* Slightly larger for readability */
+}
+
+.view-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: #30644d;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5rem; /* Adjusted for consistency */
+  transition: all 0.3s;
+}
+
+.view-btn:hover {
+  background: #43b48c;
+}
+
+/* Loading State */
+.event-loading-wrapper {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-text {
+  font-size: 1.4rem; /* Adjusted to match home.css paragraph size */
+  color: #30644d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-title { font-size: 8vw; }
+  .hero-subtitle { font-size: 1.2rem; }
+  .event-title { font-size: 1.6rem; }
+  .event-season { font-size: 1rem; }
+  .event-details p { font-size: 1rem; }
+  .comments { font-size: 1.2rem; }
+  .view-btn { font-size: 1.3rem; padding: 8px 16px; }
+}

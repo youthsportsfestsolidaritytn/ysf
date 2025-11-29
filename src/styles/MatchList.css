@@ -1,0 +1,203 @@
+/* =============================
+   Match Wrapper & Global Styles
+============================= */
+.match-wrapper {
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* =============================
+   Hero Section
+============================= */
+.hero-section {
+  background: linear-gradient(135deg, #30644d 0%, #43b48c 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 6rem 2rem;
+  border-radius: 0 0 50% 50% / 20%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .floating-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero-section .floating-circle:nth-child(1) { top: 100px; left: 50px; animation-delay: 0s; }
+.hero-section .floating-circle:nth-child(2) { top: 150px; right: 70px; animation-delay: 2s; }
+.hero-section .floating-circle:nth-child(3) { bottom: 120px; left: 150px; animation-delay: 4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(20deg); }
+}
+
+.hero-content { position: relative; z-index: 1; }
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* =============================
+   Tab Buttons
+============================= */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.tab-buttons button {
+  padding: 0.8rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #30644d;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.tab-buttons button.active,
+.tab-buttons button:hover {
+  background: #43b48c;
+}
+
+/* =============================
+   Match List Section
+============================= */
+.match-list-section {
+  padding: 2rem;
+  display: grid;
+  gap: 25px;
+}
+
+.match-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.match-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 6px 18px rgba(77,180,221,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.match-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 28px rgba(77,180,221,0.25);
+}
+
+.match-title {
+  font-size: 1.8rem;
+  color: #30644d;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.match-details p {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #30644d;
+}
+
+.match-details .icon {
+  margin-right: 8px;
+  color: #43b48c;
+}
+
+/* =============================
+   Leaderboard Section
+============================= */
+.leaderboard-section {
+  padding: 2rem;
+}
+
+.leaderboard-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #30644d;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(77,180,221,0.15);
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 12px 15px;
+  text-align: center;
+  color: #30644d;
+}
+
+.leaderboard-table th {
+  background: #43b48c;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.leaderboard-table td{
+  font-size: 1.2rem;
+}
+
+.leaderboard-table tbody tr:nth-child(even) {
+  background: #f0f7f6;
+}
+
+/* =============================
+   Loading State
+============================= */
+.match-loading-wrapper {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-text {
+  font-size: 1.4rem;
+  color: #30644d;
+}
+
+/* =============================
+   Responsive Adjustments
+============================= */
+@media (max-width: 768px) {
+  .hero-title { font-size: 8vw; }
+  .hero-subtitle { font-size: 1.3rem; }
+  .match-title { font-size: 1.6rem; }
+  .match-details p { font-size: 1rem; }
+  .tab-buttons button { font-size: 1.3rem; padding: 8px 16px; }
+  .loading-text { font-size: 1.2rem; }
+  .leaderboard-title { font-size: 2rem; }
+}
